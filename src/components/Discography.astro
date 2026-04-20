@@ -68,6 +68,10 @@ const albums = [
       >&times;</button>
     </div>
     <!-- Spotify embed -->
+    <div id="spotify-error" style="display:none; position:absolute; inset:0; z-index:3; align-items:center; justify-content:center; flex-direction:column; gap:1rem; background:#121212;">
+      <p style="font-family:'Roboto Condensed',sans-serif; font-size:0.85rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.5); margin:0;">Couldn't load Spotify</p>
+      <button id="spotify-retry" style="background:none; border:1px solid rgba(255,255,255,0.3); color:#fff; font-family:'Roboto Condensed',sans-serif; font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase; padding:10px 24px; cursor:pointer;">Retry</button>
+    </div>
     <div id="spotify-wrapper" style="position:relative; padding-bottom:70%; height:0; margin-top:-12px;">
       <iframe
         id="spotify-iframe"
@@ -103,27 +107,49 @@ const albums = [
     } catch { return '#121212'; }
   }
 
+  const errorEl  = document.getElementById('spotify-error')!;
+  const retryBtn = document.getElementById('spotify-retry')!;
+  let timeoutId: ReturnType<typeof setTimeout>;
+  let currentSpotify = '';
+
+  function loadSpotify(spotifyId: string) {
+    clearTimeout(timeoutId);
+    errorEl.style.display = 'none';
+    iframe.style.opacity = '0';
+    iframe.src = `https://open.spotify.com/embed/playlist/${spotifyId}`;
+    iframe.onload = () => {
+      clearTimeout(timeoutId);
+      iframe.style.opacity = '1';
+    };
+    timeoutId = setTimeout(() => {
+      iframe.style.opacity = '0';
+      errorEl.style.display = 'flex';
+    }, 8000);
+  }
+
+  retryBtn.addEventListener('click', () => loadSpotify(currentSpotify));
+
   document.querySelectorAll('.album-card').forEach(card => {
     card.addEventListener('click', () => {
-      const spotify = card.getAttribute('data-spotify')!;
-      const title   = card.getAttribute('data-title')!;
-      const year    = card.getAttribute('data-year')!;
-      const imgEl   = card.querySelector('img') as HTMLImageElement;
+      currentSpotify  = card.getAttribute('data-spotify')!;
+      const title     = card.getAttribute('data-title')!;
+      const year      = card.getAttribute('data-year')!;
+      const imgEl     = card.querySelector('img') as HTMLImageElement;
 
-      iframe.style.opacity = '0';
-      iframe.src = `https://open.spotify.com/embed/playlist/${spotify}`;
-      iframe.onload = () => { iframe.style.opacity = '1'; };
       modalTitle.textContent = title;
       modalYear.textContent  = year;
       modal.classList.add('open');
       document.body.style.overflow = 'hidden';
       header.style.background = extractDarkColor(imgEl);
+      loadSpotify(currentSpotify);
     });
   });
 
   function closeModal() {
+    clearTimeout(timeoutId);
     modal.classList.remove('open');
     iframe.style.opacity = '0';
+    errorEl.style.display = 'none';
     iframe.src = '';
     document.body.style.overflow = '';
     header.style.background = '#121212';
