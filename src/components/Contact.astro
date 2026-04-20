@@ -1,5 +1,30 @@
 ---
 ---
+<style>
+  .contact-btn {
+    align-self: flex-start;
+    background: #fea49f;
+    color: #fff;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 14px 40px;
+    border: 2px dashed #FFE940;
+    text-decoration: none;
+    transition: background .2s;
+    max-width: 100%;
+    box-sizing: border-box;
+    word-break: break-all;
+  }
+  @media (max-width: 640px) {
+    .contact-btn {
+      align-self: stretch;
+      text-align: center;
+      padding: 14px 16px;
+    }
+  }
+</style>
 <section id="contact" class="relative grain px-8 md:px-16 py-20" style="background: linear-gradient(135deg, #101357 0%, #1a1f6e 100%); overflow:hidden;">
   <!-- decorative background circles -->
   <div class="absolute pointer-events-none" style="width:500px;height:500px;border-radius:50%;background:rgba(254,164,159,0.08);top:-150px;right:-100px;"></div>
@@ -22,7 +47,7 @@
       </p>
       <a
         href="mailto:licensing@nakedsnakemusic.com"
-        style="align-self:flex-start; background:#fea49f; color:#fff; font-family:'Roboto Condensed',sans-serif; font-size:0.78rem; letter-spacing:0.25em; text-transform:uppercase; padding:14px 40px; border:2px dashed #FFE940; text-decoration:none; transition:background .2s;"
+        class="contact-btn"
         onmouseover="this.style.background='#f04a53'"
         onmouseout="this.style.background='#fea49f'"
       >
