@@ -19,3 +19,5 @@ pnpm-debug.log*
 # docs and tooling
 docs/
 .superpowers/
+
+.vercel

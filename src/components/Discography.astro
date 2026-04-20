@@ -1,17 +1,17 @@
 ---
 const albums = [
-  { title: "Lightning-Rod Man",         year: "1993", img: "/album0.jpg",        spotify: "4K4eI7R23EN3Fvtje1TPOJ" },
-  { title: "Little Feat",               year: "1971", img: "/album1.jpg",        spotify: "3mmlXv6xZvIBq3R603hiPj" },
-  { title: "Sailin' Shoes",             year: "1972", img: "/album2.jpg",        spotify: "1usMnDmWUffcx0Q1HIHkiv" },
-  { title: "Dixie Chicken",             year: "1973", img: "/album3.jpg",        spotify: "18EHYakw06VRnlqjKIVKHR" },
-  { title: "Feats Don't Fail Me Now",   year: "1974", img: "/album4.jpg",        spotify: "4OC4wVMBDOg2rvw6pvLaKV" },
-  { title: "The Last Record Album",     year: "1975", img: "/album5.jpg",        spotify: "1ucI6di0WthxrAOk0m8XxA" },
-  { title: "Time Loves A Hero",         year: "1977", img: "/album6.jpg",        spotify: "1gV4HVFK2kxVxoatFwhXhQ" },
-  { title: "Waiting For Columbus",      year: "1978", img: "/image07-2.jpeg",    spotify: "1yKgkbBEzFsxpWhkhrEj1o" },
-  { title: "Thanks I'll Eat It Here",   year: "1977", img: "/album8.jpg",        spotify: "3zoQHg8Cx6BYKeYhhWkprR" },
-  { title: "Down On The Farm",          year: "1979", img: "/album9.jpg",        spotify: "62ARUyLmr12grN3qv1xuYW" },
-  { title: "Hoy-Hoy!",                  year: "1981", img: "/album10.jpg",       spotify: "2auOf1sZafakuP1NMa3nsF" },
-  { title: "Works With Valerie Carter", year: "ca. 1977", img: "/album13.jpg",   spotify: "6jTcUzuKuxsbXcwDdbdsp3" },
+  { title: "Little Feat",               year: "1971",     img: "/album1.jpg",      spotify: "3mmlXv6xZvIBq3R603hiPj" },
+  { title: "Sailin' Shoes",             year: "1972",     img: "/album2.jpg",      spotify: "1usMnDmWUffcx0Q1HIHkiv" },
+  { title: "Dixie Chicken",             year: "1973",     img: "/album3.jpg",      spotify: "18EHYakw06VRnlqjKIVKHR" },
+  { title: "Feats Don't Fail Me Now",   year: "1974",     img: "/album4.jpg",      spotify: "4OC4wVMBDOg2rvw6pvLaKV" },
+  { title: "The Last Record Album",     year: "1975",     img: "/album5.jpg",      spotify: "1ucI6di0WthxrAOk0m8XxA" },
+  { title: "Time Loves A Hero",         year: "1977",     img: "/album6.jpg",      spotify: "1gV4HVFK2kxVxoatFwhXhQ" },
+  { title: "Thanks I'll Eat It Here",   year: "1977",     img: "/album8.jpg",      spotify: "3zoQHg8Cx6BYKeYhhWkprR" },
+  { title: "Works With Valerie Carter", year: "ca. 1977", img: "/album13.jpg",     spotify: "6jTcUzuKuxsbXcwDdbdsp3" },
+  { title: "Waiting For Columbus",      year: "1978",     img: "/image07-2.jpeg",  spotify: "1yKgkbBEzFsxpWhkhrEj1o" },
+  { title: "Down On The Farm",          year: "1979",     img: "/album9.jpg",      spotify: "62ARUyLmr12grN3qv1xuYW" },
+  { title: "Hoy-Hoy!",                  year: "1981",     img: "/album10.jpg",     spotify: "2auOf1sZafakuP1NMa3nsF" },
+  { title: "Lightning-Rod Man",         year: "1993",     img: "/album0.jpg",      spotify: "4K4eI7R23EN3Fvtje1TPOJ" },
 ];
 ---
 
@@ -54,28 +54,28 @@ const albums = [
 
 <!-- Modal -->
 <div id="albumModal" role="dialog" aria-modal="true">
-  <div style="background:#FEF8EA; max-width:680px; width:92%; border-radius:4px; overflow:hidden; box-shadow:0 30px 80px rgba(0,0,0,0.4); animation:fadeUp .25s ease both;">
+  <div style="max-width:680px; width:92%; animation:fadeUp .25s ease both; border-radius:12px; box-shadow:0 30px 60px rgba(0,0,0,0.5); overflow:hidden;">
     <!-- Modal header -->
-    <div style="background:#fea49f; padding:1.2rem 1.5rem; display:flex; justify-content:space-between; align-items:center;">
+    <div id="modal-header" style="background:#121212; border-radius:12px 12px 0 0; padding:1.2rem 1.5rem; display:flex; justify-content:space-between; align-items:center; position:relative; z-index:2;">
       <div>
-        <p id="modal-title" style="font-family:'Pacifico',cursive; font-size:1.3rem; color:#fff; margin:0; text-shadow:1px 1px 3px rgba(0,0,0,0.2);"></p>
-        <p id="modal-year"  style="font-family:'Roboto Condensed',sans-serif; font-size:0.75rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.8); margin:0;"></p>
+        <p id="modal-title" style="font-family:'Pacifico',cursive; font-size:1.3rem; color:#fff; margin:0;"></p>
+        <p id="modal-year"  style="font-family:'Roboto Condensed',sans-serif; font-size:0.75rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.5); margin:0;"></p>
       </div>
       <button
         id="modal-close"
         aria-label="Close"
-        style="background:none; border:none; cursor:pointer; font-size:1.8rem; color:rgba(255,255,255,0.8); line-height:1; padding:0 4px;"
+        style="background:none; border:none; cursor:pointer; font-size:1.8rem; color:rgba(255,255,255,0.5); line-height:1; padding:0 4px;"
       >&times;</button>
     </div>
     <!-- Spotify embed -->
-    <div style="position:relative; padding-bottom:70%; height:0; overflow:hidden;">
+    <div id="spotify-wrapper" style="position:relative; padding-bottom:70%; height:0; margin-top:-12px;">
       <iframe
         id="spotify-iframe"
         src=""
         allow="encrypted-media"
         frameborder="0"
         allowtransparency="true"
-        style="position:absolute; top:0; left:0; width:100%; height:100%; border:none;"
+        style="position:absolute; top:0; left:0; width:100%; height:100%; border:none; opacity:0; transition:opacity 0.4s ease;"
       ></iframe>
     </div>
   </div>
@@ -87,24 +87,46 @@ const albums = [
   const modalTitle = document.getElementById('modal-title')!;
   const modalYear  = document.getElementById('modal-year')!;
   const closeBtn   = document.getElementById('modal-close')!;
+  const header     = document.getElementById('modal-header')!;
+
+  let colorThief: any = null;
+  import('https://cdn.jsdelivr.net/npm/colorthief@2.4.0/dist/color-thief.mjs')
+    .then(m => { colorThief = new m.default(); })
+    .catch(() => {});
+
+  function extractDarkColor(imgEl: HTMLImageElement): string {
+    if (!colorThief) return '#121212';
+    try {
+      const [r, g, b] = colorThief.getColor(imgEl);
+      const f = 0.4;
+      return `rgb(${Math.floor(r*f)},${Math.floor(g*f)},${Math.floor(b*f)})`;
+    } catch { return '#121212'; }
+  }
 
   document.querySelectorAll('.album-card').forEach(card => {
     card.addEventListener('click', () => {
       const spotify = card.getAttribute('data-spotify')!;
       const title   = card.getAttribute('data-title')!;
       const year    = card.getAttribute('data-year')!;
+      const imgEl   = card.querySelector('img') as HTMLImageElement;
+
+      iframe.style.opacity = '0';
       iframe.src = `https://open.spotify.com/embed/playlist/${spotify}`;
+      iframe.onload = () => { iframe.style.opacity = '1'; };
       modalTitle.textContent = title;
       modalYear.textContent  = year;
       modal.classList.add('open');
       document.body.style.overflow = 'hidden';
+      header.style.background = extractDarkColor(imgEl);
     });
   });
 
   function closeModal() {
     modal.classList.remove('open');
+    iframe.style.opacity = '0';
     iframe.src = '';
     document.body.style.overflow = '';
+    header.style.background = '#121212';
   }
 
   closeBtn.addEventListener('click', closeModal);
