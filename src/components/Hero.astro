@@ -3,18 +3,20 @@
 <style>
   .hero {
     background-position: center 20%;
+    background-image: url('/hero.png');
+    background-size: cover;
+    background-attachment: fixed;
   }
   @media (max-width: 768px) {
     .hero {
       background-position: 35% 20%;
-      background-image: url('/heroOriginal.jpg') !important;
+      background-image: url('/heroOriginal.jpg');
       background-attachment: scroll;
     }
   }
 </style>
 <section
   class="hero relative flex items-center justify-end min-h-[55vh] px-8 md:px-20 py-24"
-  style="background-image:url('/hero.png'); background-size:cover; background-attachment:fixed;"
 >
   <!-- layered overlay: dark + warm tint -->
   <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(254,164,159,0.25) 0%, rgba(0,0,0,0.55) 100%)"></div>
